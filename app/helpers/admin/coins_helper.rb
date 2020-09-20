@@ -1,0 +1,2 @@
+module Admin::CoinsHelper
+end

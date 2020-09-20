@@ -1,0 +1,17 @@
+= form_with(model: [:admin, coin], local: true) do |form|
+  - if coin.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(coin.errors.count, "error")
+        prohibited this coin from being saved:
+      %ul
+        - coin.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :title
+    = form.text_field :title
+  .field
+    = form.label :description
+    = form.text_field :description
+  .actions
+    = form.submit

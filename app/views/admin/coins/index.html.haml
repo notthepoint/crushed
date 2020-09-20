@@ -1,0 +1,21 @@
+%h1 Coin management
+
+.big-button
+  = link_to 'Add coin', new_admin_coin_path(@coin)
+
+%table
+  %thead
+    %th Title
+    %th City
+    %th Country
+    %th Edit
+    %th Delete
+  %tbody
+    - @coins.each do |coin|
+      %tr
+        %td= coin.title
+        %td= coin.city
+        %td= coin.country
+        %td= link_to 'Edit coin', edit_admin_coin_path(coin)
+        %td= button_to 'Delete coin', admin_coin_path(coin), method: :delete
+    
