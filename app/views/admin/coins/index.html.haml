@@ -8,6 +8,7 @@
     %th Title
     %th City
     %th Country
+    %th Postal code
     %th Edit
     %th Delete
   %tbody
@@ -16,6 +17,7 @@
         %td= coin.title
         %td= coin.city
         %td= coin.country
+        %td= coin.postal_code
         %td= link_to 'Edit coin', edit_admin_coin_path(coin)
         %td= button_to 'Delete coin', admin_coin_path(coin), method: :delete
     
