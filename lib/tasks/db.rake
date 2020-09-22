@@ -35,7 +35,7 @@ namespace :db do
 			response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json", {
 				query: {
 					address: "#{title}, #{address}",
-					key: Rails.application.credentials.google.maps_api_key }
+					key: Rails.application.credentials.google[:maps_api_key] }
 			})
 
 			if response.code == 404
