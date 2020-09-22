@@ -2,7 +2,7 @@ require("leaflet")
 require("leaflet.markercluster")
 
 var greenIcon = L.icon({
-    iconUrl: 'assets/coin.png',
+    iconUrl: coin_path,
     shadowUrl: 'coin-shadow.png',
     iconSize:     [15, 45],
     shadowSize:   [15, 45],
