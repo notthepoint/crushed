@@ -15,6 +15,8 @@ namespace :db do
 			view_html = Nokogiri::HTML(view_doc.parsed_response)
 
 			 #view_html.css('br').each{ |br| br.replace("\n") }
+			next unless view_html.css('#LocationName')[0]
+
 			title = view_html.css('#LocationName')[0].content
 
 			full_desc = view_html.css('#DescriptionContainer p').map do |d|
