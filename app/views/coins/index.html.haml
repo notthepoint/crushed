@@ -1,1 +1,17 @@
 %h1 Crushed!
+
+%div#mapid
+
+:javascript 
+  var coins = (#{@coins.map do |c|
+      {
+       title: c.title,
+       desc: c.description.truncate(150),
+       x: c.longlat.x,
+       y: c.longlat.y,
+       link: link_to('Read more', c)
+     }
+  end.to_json.html_safe})
+
+= stylesheet_link_tag 'map'
+= javascript_pack_tag 'map'
