@@ -1,0 +1,19 @@
+/*
+*= require 'leaflet/dist/leaflet'
+*= require 'leaflet.markercluster/dist/MarkerCluster'
+*= require 'leaflet.markercluster/dist/MarkerCluster.Default'
+*/
+
+#mapid {
+	height: 80%;
+	width: 80vw; 
+	margin: 0 auto;
+}
+
+@media only screen and (hover: none) and (pointer: coarse){
+	#mapid {
+		height: 90%;
+		width: 100vw; 
+		margin: 0 auto;
+	}
+}
