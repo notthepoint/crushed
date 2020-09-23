@@ -40,16 +40,18 @@ namespace :db do
 					key: Rails.application.credentials.google[:maps_api_key] }
 			})
 
-			if response.code == 404
-				puts "="*20
+
+			locData = JSON.parse(response.body)["results"][0]
+
+			if response.code == 404 || !locData
+				puts "="*10 + "ERR" + "="*10
 				puts "No address found for:"
-				puts address1
-				puts "-"*20
-				puts "#{title}, #{address}"
+				puts "#{title}: #{address}"
 			else
-				locData = JSON.parse(response.body)["results"][0]
 				country = locData["address_components"].find{ |d| d["types"].include?("country") }
 				postal_code = locData["address_components"].find{ |d| d["types"].include?("postal_code") }
+
+				next if Coin.find_by_title(title)
 
 				c = Coin.new(
 					title: title,
